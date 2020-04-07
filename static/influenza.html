@@ -1,0 +1,144 @@
+<!  DOCTYPE html>
+<html>
+
+<head>
+    <title>Influenza Information</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/disease.css">
+</head>
+
+<body>
+
+    <script type="text/javascript" src="../assets/js/index.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Gy3asn6Fk00IIY3wdatOKU0PM7t4jUI&callback=initMap"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCHS03Toizy9z4e4FHEOPtDS8hkX1bIASY",
+            authDomain: "csewebsiteproject.firebaseapp.com",
+            databaseURL: "https://csewebsiteproject.firebaseio.com",
+            projectId: "csewebsiteproject",
+            storageBucket: "csewebsiteproject.appspot.com",
+            messagingSenderId: "487693454058",
+            appId: "1:487693454058:web:5182d35ac747c6b451a593",
+            measurementId: "G-P4EEY1X007"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <h1>Live Disease Tracking Map</h1>
+
+    <!-- Create navbar buttons to link to pages for each website feature -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <div class="subnav" id="subnav-top">
+                <button class="subnavbtn active" id='subnavbtn-top'>Diseases</button>
+                <div class="subnav-content" id='subnav-content-top'>
+                    <div class="subnav" id="subnav-dropdown-corona">
+                        <button class="subnavbtn dropdownbtn">Coronavirus</button>
+                        <div class="subnav-content" id="subnav-content-dropdown-corona">
+                            <a href="coronavirus.html">About</a>
+                            <a href="coronavirus-news.html">News</a>
+                            <a href="coronavirus-help.html">Get Help</a>
+                        </div>
+                    </div>
+                    <div class="subnav" id="subnav-dropdown-influenza" style="position:absolute;top:40px;">
+                        <button class="subnavbtn dropdownbtn active">Influenza</button>
+                        <div class="subnav-content" id="subnav-content-dropdown-influenza">
+                            <a class='active' href="influenza.html">About</a>
+                            <a href="influenza-news.html">News</a>
+                            <a href="influenza-help.html">Get Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li><a href="report.html">Case Info</a></li>
+        </ul>
+    </div>
+
+    <h1>About Influenza</h1>
+    <div style='display:inline-block;float:right;'>
+    <img class="s45" src='../assets/img/fluVirus.jpg' />
+
+    <!-- Info from WHO to display on page -->
+</div>
+    <div id='about-influenza'>
+        <h4>
+            Influenza, also known as "the flu" is a disease caused by the influenza 
+            virus. It is a highly contagious disease <br>that affects the respiratory
+            system. If left untreated, it can cause devastating complications
+            and even death.
+        </h4>
+    </div>
+    <div id='symptoms'>
+        <h2>Symptoms</h2>
+        <p>
+            Signs of Influenza generally appear immediately and suddenly. Some symptoms may include:
+        </p>
+        <ul>
+            <li>Fever</li>
+            <li>Severe aches in your muscles and joints</li>
+            <li>Weakness or severe fatigue</li>
+            <li>Warm, flushed skin and red, watery eyes</li>
+            <li>Chills</li>
+            <li>A headache</li>
+            <li>A dry cough</li>
+            <li>A sore throat and runny nose</li>
+        </ul>
+    </div>
+    <div class='row'>
+        <div id='causes'>
+            <p>
+                This illness is different from a cold. While more than 100 different viruses can cause a cold, only influenza virus types A, B, and C cause the flu.
+
+Type A and B viruses cause the large seasonal outbreaks. Type C usually causes milder respiratory symptoms. While the flu vaccine can help protect you from types A and B, there is no immunization for type C virus.
+            </p>
+        </div>
+
+        <div id='spread'>
+            <h2>How it Spreads</h2>
+            <h4>Person-to-Person Spread</h4>
+            <p>The flu is a highly contagious disease. It spreads when you come into contact with the stuff someone else sneezes or coughs up.
+
+You could breathe it in, or get it from kissing. You could get it on your hands from objects like silverware, doorknobs, handles, television remotes, computer keyboards, and telephones.
+
+The virus enters your body when you touch your hands to your nose, eyes, or mouth..</p>
+            <p></p>
+        </div>
+    </div>
+    <div class = 'row'>
+        <center><img src='../assets/img/fluTrends.png' alt='fluTrends.png'/></center>
+        <div id = 'spread'>
+            <p>
+                In the United States, flu season occurs in the fall and winter. While influenza viruses circulate year-round, most of the time flu activity peaks between December and February, 
+                but activity can last as late as May. The overall health impact (e.g., infections, hospitalizations, and deaths) of a flu season varies from season to season. CDC collects, 
+                compiles, and analyzes information on influenza activity year-round in the United States and produces FluView, a weekly surveillance report, and FluView Interactive, which
+                 allows for more in-depth exploration of influenza surveillance data.  The Weekly U.S. Influenza Summary Update is updated each week from October through May.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div id='sources'>
+        Sources: WebMD - "What Causes the Flu?", "Flu Symptoms"
+        Sources: WebMD - "What Causes the Flu?", "Flu Symptoms"
+    </div>
+</body>
+
+</html>

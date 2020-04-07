@@ -1,0 +1,34 @@
+#about { /* about section formatting */
+    display: block;
+    margin:auto;
+    width:100%;
+}
+
+#about h4 {
+	text-align:center;
+}
+
+.section { /* individual section formatting */
+    display: inline-block;
+    float: left;
+    width: 60%;
+    margin:auto;
+    overflow-wrap: normal;
+}
+
+.diseaseImg { /* disease image div formatting */
+	display:inline-block;
+	float:left;
+	width:30%;
+	height:auto;
+	margin:auto;
+}
+
+img { /* img must expand to fill div */
+	max-width: 100%;
+}
+
+.bottomImg{ /* bottom img div formatting */
+    position: absolute;
+    bottom: 0px;
+}

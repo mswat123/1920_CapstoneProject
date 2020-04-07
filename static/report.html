@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Report Disease Case</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/report.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="../assets/js/index.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Gy3asn6Fk00IIY3wdatOKU0PM7t4jUI&callback=initMap"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCHS03Toizy9z4e4FHEOPtDS8hkX1bIASY",
+            authDomain: "csewebsiteproject.firebaseapp.com",
+            databaseURL: "https://csewebsiteproject.firebaseio.com",
+            projectId: "csewebsiteproject",
+            storageBucket: "csewebsiteproject.appspot.com",
+            messagingSenderId: "487693454058",
+            appId: "1:487693454058:web:5182d35ac747c6b451a593",
+            measurementId: "G-P4EEY1X007"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <h1>Live Disease Tracking Map</h1>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <div class="subnav" id="subnav-top">
+                <button class="subnavbtn" id='subnavbtn-top'>Diseases</button>
+                <div class="subnav-content" id='subnav-content-top'>
+                    <div class="subnav" id="subnav-dropdown-corona">
+                        <button class="subnavbtn dropdownbtn">Coronavirus</button>
+                        <div class="subnav-content" id="subnav-content-dropdown-corona">
+                            <a href="coronavirus.html">About</a>
+                            <a href="coronavirus-news.html">News</a>
+                            <a href="coronavirus-help.html">Get Help</a>
+                        </div>
+                    </div>
+                    <div class="subnav" id="subnav-dropdown-influenza" style="position:absolute;top:40px;">
+                        <button class="subnavbtn dropdownbtn">Influenza</button>
+                        <div class="subnav-content" id="subnav-content-dropdown-influenza">
+                            <a href="influenza.html">About</a>
+                            <a href="influenza-news.html">News</a>
+                            <a href="influenza-help.html">Get Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li><a class='active' href="report.html">Case Info</a></li>
+        </ul>
+    </div>
+    <h1>
+        <center>Submit a Disease Case Report</center>
+    </h1>
+    <br>
+    <div class="data-gather" style="text-align:center;margin:auto;">
+        <h2>
+            <center>Retrieve your location<br></center>
+        </h2>
+        <div class="location-input">
+            <button class='pagebtn' onclick="getLocation()">Get Location</button>
+            <h3>Your current location: </h3>
+            <p id="user-location"></p>
+        </div>
+        <br><br>
+        <h2>
+            <center>Report a disease case with location<br></center>
+        </h2>
+
+        <div class="disease-input">
+            <input type="radio" name="disease" value="Coronavirus" id="Coronavirus" />
+            <label for="Coronavirus">Coronavirus</label>
+
+            <input type="radio" name="disease" value="Influenza" id="Influenza" />
+            <label for="Influenza">Influenza</label>
+
+        </div>
+        <br>
+
+        <div class="report-disease">
+            <button class='pagebtn' onclick="report()">Report Disease</button>
+            <p id="disease-submitted"><strong>Status:</strong> No case submitted</p>
+        </div>
+    </div>
+</body>
+
+</html>

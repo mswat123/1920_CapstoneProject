@@ -1,0 +1,158 @@
+:root { /* sets var for navbar padding */
+  --navbar-padding: 16px;
+}
+
+body {
+    font-family:"Helvetica", Arial, Helvetica, sans-serif;
+}
+
+.tables table {
+    border-collapse: collapse;
+    width: 100%;
+    margin:auto;
+}
+
+.tables table td, th, caption { /* table formatting */
+    text-align:center;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tables table tr:nth-child(even){background-color: #f2f2f2;} /* table formatting */
+
+.tables table tr:hover {background-color: #ddd;} /* table formatting */
+
+.tables table th, caption { /* table formatting */
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tables table caption { /* table formatting */
+    background-color:#025B12;
+}
+
+.navbar {
+  overflow:hidden;
+}
+
+.navbar ul { /* main navbar formatting */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar li { /* main navbar tab formatting */
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+.navbar li:last-child { /* last tab no border */
+  border-right: none;
+}
+
+.navbar li > a, #subnavbtn-top { /* each tab formatting and 'diseases' tab formatting */
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px var(--navbar-padding);
+  text-decoration: none;
+}
+
+.navbar li > a:hover:not(.active), #subnav-top:hover:not(.active) #subnavbtn-top { /* when hover over tab, turn bg black */
+  background-color: #111;
+}
+
+#subnav-top {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav > .subnavbtn { /* 'diseases' tab formatting and each submenu formatting */
+  font-size: inherit;
+  border: inherit;
+  outline: none;
+  color: white;
+  padding: 14px var(--navbar-padding);
+  background-color: inherit;
+  font-family: inherit;
+  border-right:1px solid #bbb;
+}
+
+#subnav-dropdown-corona, #subnav-dropdown-influenza { /* 'corona' and 'influenza' tabs formatting */
+  display:block !important;
+  /*width:100% !important;*/
+  z-index:1;
+}
+
+.subnav-content, #subnav-dropdown-corona, #subnav-dropdown-influenza { /* 'corona' and 'influenza' tabs formatting, along with their submenus */
+  display: none;
+  position: absolute;
+  background-color: black;
+  color:white !important;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: 200px;
+  /*z-index: 1;*/
+}
+
+.subnav-content > a, .dropdownbtn { /* 'corona' and 'influenza' tabs formatting, along w/ submenus */
+  /*position:absolute;*/
+  float: none;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: block;
+  text-align:left;
+  color: white !important;
+  text-decoration: none;
+}
+
+.subnav-content { /* submenu links formatting*/
+  z-index:2 !important;
+}
+
+.dropdownbtn { /* 'corona' and 'influenza' tabs and 'diseases' tab formatting*/
+  width:100% !important;
+  position:absolute;
+  box-sizing: content-box;
+  font-size: inherit;
+  border: inherit;
+  outline: none;
+  color: white;
+  padding: 14px var(--navbar-padding);
+  background-color: inherit;
+  font-family: inherit;
+  /*border-right:1px solid #bbb;*/
+}
+
+.subnav-content > a:hover:not(.active), .dropdownbtn:hover:not(.active) { /* turn submenu white when hover */
+  background-color: #eee !important;
+  color: black !important;
+}
+
+#subnav-top:hover #subnav-content-top { /* make submenu tabs visible */
+  display: block;
+}
+
+#subnav-dropdown-corona:hover > #subnav-content-dropdown-corona, #subnav-dropdown-influenza:hover > #subnav-content-dropdown-influenza { /* make sub-submenus visible */
+  display: block;
+  position: absolute;
+  left: 116% !important;
+  top: 0;
+}
+
+.active { /* color of current pg */
+  background-color: #4CAF50 !important;
+}
+
+#coronavirus-info, #influenza-info {
+  font-size: 18px !important;
+}
+
+.mm4{ /* news cards formatting */
+  display:inline-block !important;
+  width: 40% !important;
+  margin: 20px !important;
+}
